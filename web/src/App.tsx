@@ -502,9 +502,18 @@ function App() {
         </section>
 
         <section className="section seo-section" aria-labelledby="seo-title">
-          <div className="section-heading compact">
-            <p className="eyebrow">Search discovery</p>
-            <h2 id="seo-title">Local search terms are built into the page.</h2>
+          <div className="section-heading compact with-media">
+            <div className="heading-copy">
+              <p className="eyebrow">Search discovery</p>
+              <h2 id="seo-title">Local search terms are built into the page.</h2>
+            </div>
+            <OptimizedImage
+              className="heading-image"
+              name="coaching.webp"
+              alt="Indoor bouldering coaching session supporting Adelaide search discovery"
+              width={1920}
+              height={1078}
+            />
           </div>
           <div className="keyword-grid">
             {seoKeywords.map((keyword) => (

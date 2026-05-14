@@ -54,11 +54,15 @@ The visual direction balances energy with task clarity. Cobalt blue, lime, and r
 
 The use of real climbing imagery is important for credibility. Fogg et al. (2003) found that design look, information structure, and information focus influence how users evaluate the credibility of websites. For a venue-based service, visual credibility depends partly on showing the actual type of environment users will enter. The chosen imagery communicates walls, training, coaching, and events. These visuals help the user imagine the visit before committing to it.
 
+The later iteration strengthened this visual strategy by ensuring that every media-supported heading has a real corresponding image. The pricing, location, and local-search sections now each pair their strategic message with an authentic gym image, so no section depends on an empty image slot or placeholder. This is particularly important in the SEO section, where the heading "Local search terms are built into the page" is now supported by a coaching image that connects search discovery with actual class and service content.
+
 The interface also reflects established usability heuristics. Nielsen (1994) argues that heuristic principles help explain usability problems and guide interface evaluation. In this redesign, visibility of system purpose is achieved through section headings and direct calls to action; match with user needs is achieved through beginner-focused language; consistency is achieved through repeated card and button patterns; and error prevention is addressed by making the waiver requirement visible before arrival.
 
 The calls to action were treated as high-priority interaction targets. Fitts's law states that target acquisition depends on target size and distance (Fitts, 1954). While this project does not mathematically model pointer movement, the design applies the principle by using large, high-contrast buttons with stable spacing and clear labels. The minimum button height of 44px supports reliable selection on touch and pointer devices.
 
 The page also considers retrospective experience. The Classes and Community section is informed by the peak-end rule literature, which shows that people often evaluate experiences disproportionately through intense moments and endings (Kahneman et al., 1993). For a climbing gym, events, coaching, and structured challenges can become memorable peaks, while a smooth waiver and clear arrival process can improve the end of the pre-visit digital journey. The website therefore supports both immediate conversion and later remembered satisfaction.
+
+To make the interface feel more polished and responsive, the final prototype also adds restrained motion design. Section headings and image blocks use a short rise-and-fade entry animation, while cards, buttons, images, and active location tabs have hover or selected-state feedback. These effects are intentionally subtle: they add perceived responsiveness and visual interest without changing the page structure or distracting from the conversion path. A `prefers-reduced-motion` media query disables meaningful movement for users who prefer reduced animation.
 
 ![Narrow viewport or mobile-responsive layout](image4.png)
 
@@ -69,6 +73,8 @@ The project is implemented as a React single-page prototype. `App.tsx` defines t
 The location comparison uses React state. The `activeLocation` state stores the currently selected location key, and the location card updates based on user selection. This is a lightweight interaction, but it demonstrates a practical pattern for service comparison. It also keeps the page focused: instead of expanding three full location blocks at once, the user sees one detailed comparison state at a time.
 
 The main stylesheet uses CSS Grid and Flexbox extensively. Grid is used for the hero layout, proof strip, journey cards, pricing cards, location layout, event cards, and waiver section. Flexbox is used for navigation and tag-like lists where wrapping is appropriate. This combination allows the page to move from multi-column desktop layouts to single-column mobile layouts without requiring JavaScript-driven layout changes.
+
+The implementation includes a reusable `OptimizedImage` component for page imagery. It keeps the original image files and quality intact, adds explicit dimensions to reduce layout shift, uses native `loading` and `decoding` attributes, and retries the same image path if a deployment path issue prevents a first load. The browser console message about lazy-loaded images being deferred is an intervention notice rather than a functional error; the lower-page images are intentionally lazy-loaded to reduce initial memory and network pressure.
 
 The HTML entry file includes SEO metadata, Open Graph information, and JSON-LD structured data. This supports digital discoverability and communicates the site's topic to search engines. Kannan and Li (2017) describe digital marketing as a system of touchpoints shaped by digital technologies; in that sense, the metadata is not a separate technical afterthought but part of the broader acquisition strategy.
 
@@ -127,6 +133,8 @@ This avoids keyword stuffing. The keywords appear in contexts where they help th
 ## Outcome and Professional Assessment
 
 The final prototype improves the homepage by turning it into a guided first-visit experience. The redesign clarifies the beginner path, reduces pricing ambiguity, makes location choice more contextual, and connects online preparation to the physical gym visit. The visual system remains energetic, but the page no longer depends on visual impact alone. Its structure now supports decision-making.
+
+The final media pass also corrected the remaining section-level image gap beside the local-search heading and added a more attractive interaction layer. The result is a page that feels less static while still preserving the original imagery, original image quality, and the task-focused information architecture.
 
 Professionally, the strongest aspect of the redesign is the alignment between user uncertainty and content hierarchy. Each major section answers a specific user question. The main weakness is that the data remains conceptual. To move into production, current prices, exact addresses, operating hours, and the real waiver system would need to be integrated. Accessibility could also be strengthened by implementing fuller keyboard behavior for the tab interface and by adding real validation states to the waiver form.
 
