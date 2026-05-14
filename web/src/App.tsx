@@ -1,6 +1,25 @@
 import { useState } from "react";
 
 type LocationKey = "kent-town" | "keswick" | "thebarton";
+type ImageName =
+  | "about-wall.webp"
+  | "board-wars.webp"
+  | "coaching.webp"
+  | "eight-week-challenge.webp"
+  | "first-time-climber.webp"
+  | "gym-floor.webp"
+  | "home-hero.webp"
+  | "logo-white.webp";
+
+type OptimizedImageProps = {
+  name: ImageName;
+  alt: string;
+  width: number;
+  height: number;
+  className?: string;
+  loading?: "eager" | "lazy";
+  fetchPriority?: "high" | "low" | "auto";
+};
 
 type PricePlan = {
   label: string;
@@ -114,13 +133,17 @@ const events = [
   {
     title: "Board Wars",
     meta: "Thebarton events",
-    image: "/images/board-wars.webp",
+    image: "board-wars.webp",
+    width: 1080,
+    height: 500,
     copy: "Performance-focused sessions create a memorable peak moment for regular climbers.",
   },
   {
     title: "8 Week Challenge",
     meta: "All locations",
-    image: "/images/eight-week-challenge.webp",
+    image: "eight-week-challenge.webp",
+    width: 1800,
+    height: 1200,
     copy: "A structured pathway for confidence, strength, and community connection.",
   },
 ];
@@ -133,6 +156,39 @@ const seoKeywords = [
   "bouldering classes Adelaide",
   "social fitness Adelaide",
 ];
+
+const imagePath = (name: ImageName) => `${import.meta.env.BASE_URL}images/${name}`;
+
+function OptimizedImage({
+  name,
+  alt,
+  width,
+  height,
+  className,
+  loading = "lazy",
+  fetchPriority = "auto",
+}: OptimizedImageProps) {
+  return (
+    <img
+      className={className}
+      src={imagePath(name)}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading}
+      decoding="async"
+      fetchPriority={fetchPriority}
+      onError={(event) => {
+        const image = event.currentTarget;
+        const fallback = `/images/${name}`;
+
+        if (image.src !== new URL(fallback, window.location.href).href) {
+          image.src = fallback;
+        }
+      }}
+    />
+  );
+}
 
 function App() {
   const [activeLocation, setActiveLocation] = useState<LocationKey>("kent-town");
@@ -150,7 +206,14 @@ function App() {
         </div>
         <div className="nav-shell">
           <a className="brand" href="#home" aria-label="Beyond Bouldering home">
-            <img src="/images/logo-white.webp" alt="" />
+            <OptimizedImage
+              name="logo-white.webp"
+              alt=""
+              width={713}
+              height={292}
+              loading="eager"
+              fetchPriority="high"
+            />
             <span>Beyond Bouldering</span>
           </a>
           <nav className="nav" aria-label="Primary navigation">
@@ -169,9 +232,13 @@ function App() {
       <main id="main">
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-media">
-            <img
-              src="/images/home-hero.webp"
+            <OptimizedImage
+              name="home-hero.webp"
               alt="Indoor bouldering wall at Beyond Bouldering Adelaide"
+              width={1562}
+              height={1037}
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
           <div className="hero-copy">
@@ -243,10 +310,11 @@ function App() {
                 ))}
               </ul>
             </div>
-            <img
-              src="/images/first-time-climber.webp"
+            <OptimizedImage
+              name="first-time-climber.webp"
               alt="A climber on an indoor bouldering wall"
-              loading="lazy"
+              width={1920}
+              height={1078}
             />
           </div>
         </section>
@@ -293,7 +361,12 @@ function App() {
               <span>Location comparison</span>
             </div>
           </div>
-          <img src="/images/about-wall.webp" alt="Beyond Bouldering climbing wall" loading="lazy" />
+          <OptimizedImage
+            name="about-wall.webp"
+            alt="Beyond Bouldering climbing wall"
+            width={1920}
+            height={1078}
+          />
         </section>
 
         <section className="section location-section" id="locations" aria-labelledby="location-title">
@@ -353,12 +426,22 @@ function App() {
           </div>
           <div className="program-grid">
             <article>
-              <img src="/images/gym-floor.webp" alt="Climbers training together indoors" loading="lazy" />
+              <OptimizedImage
+                name="gym-floor.webp"
+                alt="Climbers training together indoors"
+                width={1920}
+                height={1078}
+              />
               <h3>Beginner classes</h3>
               <p>Movement basics, gym etiquette, warm-ups, and confidence for new climbers.</p>
             </article>
             <article>
-              <img src="/images/coaching.webp" alt="Indoor bouldering coaching session" loading="lazy" />
+              <OptimizedImage
+                name="coaching.webp"
+                alt="Indoor bouldering coaching session"
+                width={1920}
+                height={1078}
+              />
               <h3>Private coaching</h3>
               <p>Personal movement feedback for climbers who want a structured progression plan.</p>
             </article>
@@ -366,7 +449,12 @@ function App() {
           <div className="event-grid">
             {events.map((event) => (
               <article className="event-card" key={event.title}>
-                <img src={event.image} alt={`${event.title} event poster`} loading="lazy" />
+                <OptimizedImage
+                  name={event.image}
+                  alt={`${event.title} event poster`}
+                  width={event.width}
+                  height={event.height}
+                />
                 <div>
                   <p>{event.meta}</p>
                   <h3>{event.title}</h3>
