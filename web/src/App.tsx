@@ -398,19 +398,33 @@ function App() {
           </div>
           <div className="location-layout">
             <div className="location-tabs" role="tablist" aria-label="Beyond Bouldering locations">
-              {(Object.keys(locations) as LocationKey[]).map((key) => (
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={activeLocation === key}
-                  className={activeLocation === key ? "active" : ""}
-                  key={key}
-                  onClick={() => setActiveLocation(key)}
-                >
-                  <span>{locations[key].name}</span>
-                  <small>{locations[key].area}</small>
-                </button>
-              ))}
+              {(Object.keys(locations) as LocationKey[]).map((key) =>
+                activeLocation === key ? (
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    className="active"
+                    key={key}
+                    onClick={() => setActiveLocation(key)}
+                  >
+                    <span>{locations[key].name}</span>
+                    <small>{locations[key].area}</small>
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    className=""
+                    key={key}
+                    onClick={() => setActiveLocation(key)}
+                  >
+                    <span>{locations[key].name}</span>
+                    <small>{locations[key].area}</small>
+                  </button>
+                ),
+              )}
             </div>
             <article className="location-card">
               <div>
@@ -550,7 +564,7 @@ function App() {
           <a href="#first-time">First Time</a>
           <a href="#pricing">Pricing</a>
           <a href="#locations">Locations</a>
-          <a href="https://beyondbouldering.com.au/" target="_blank" rel="noreferrer">
+          <a href="https://beyondbouldering.com.au/" target="_blank" rel="noopener noreferrer">
             Original site
           </a>
         </nav>
