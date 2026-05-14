@@ -6,7 +6,8 @@ This report documents the redesign of the Beyond Bouldering Adelaide website pro
 
 The design problem is best understood as a conversion and information-architecture problem. A climbing gym website must communicate atmosphere and brand personality, but it also needs to reduce the cognitive cost of planning a first visit. For a new user, the homepage is not simply an advertising surface. It is the point at which the user asks practical questions: Is bouldering suitable for beginners? Do I need equipment? What is the safest and cheapest first option? Which Adelaide location fits my routine? Do I need to complete paperwork before arriving? The redesigned homepage addresses these questions in a single guided journey.
 
-![Homepage hero and first-screen presentation](image.png)
+> **Figure placeholder 1: Homepage hero and first-screen presentation.**
+> Add a desktop screenshot of the redesigned homepage above the fold. It should show the sticky navigation, the full hero image, the headline "Start climbing in Adelaide without the guesswork," and the three main CTAs. Suggested filename: `figure-1-homepage-hero.png`.
 
 ## User Problem and Strategic Framing
 
@@ -30,7 +31,8 @@ The third issue is the waiver step. Waivers are common in physical activity serv
 
 The fourth issue is local relevance. Users searching for an Adelaide climbing gym often search by area, routine, or travel convenience. A location list is helpful, but a location comparison is more useful. The redesign connects Kent Town, Keswick, and Thebarton with routine-based explanations, facilities, and access notes. This aligns the digital experience with the user's real-world decision process.
 
-![Desktop view showing mid-page structure and content density](image2.png)
+> **Figure placeholder 2: Existing-problem or mid-page analysis evidence.**
+> Add a screenshot or annotated comparison image that supports the evaluation of the original or redesigned mid-page structure. The image should help show why clearer task sequencing, beginner guidance, pricing comparison, or waiver visibility matters. Suggested filename: `figure-2-experience-analysis.png`.
 
 ## Information Architecture and Page Narrative
 
@@ -46,7 +48,8 @@ The Locations section uses a tab interaction to compare Kent Town, Keswick, and 
 
 Later sections address retention and search discovery. Classes and community content shows that the first visit can lead to beginner classes, coaching, events, and progression. This supports the broader customer journey because the goal is not only to produce one visit but also to make the first experience feel like the beginning of a sustainable activity. The SEO section makes the local search strategy visible through long-tail keywords. Finally, the waiver form closes the page with a concrete action.
 
-![Pricing and location comparison sections](image3.png)
+> **Figure placeholder 3: Pricing and location comparison sections.**
+> Add a desktop screenshot that captures the redesigned pricing cards and, if possible, the beginning of the locations section. It should show the side image beside the pricing heading, the four pricing options, and the comparison logic. Suggested filename: `figure-3-pricing-location.png`.
 
 ## Visual Design and Interaction Rationale
 
@@ -64,7 +67,8 @@ The page also considers retrospective experience. The Classes and Community sect
 
 To make the interface feel more polished and responsive, the final prototype also adds restrained motion design. Section headings, content sections, and image blocks use an IntersectionObserver-based rise-and-fade reveal, so text and imagery enter the page only when they become visible rather than remaining tied to an unstable scroll-progress opacity. Cards, buttons, images, and active location tabs also have hover or selected-state feedback. These effects are intentionally subtle: they add perceived responsiveness and visual interest without changing the page structure or distracting from the conversion path. A `prefers-reduced-motion` media query disables meaningful movement for users who prefer reduced animation.
 
-![Narrow viewport or mobile-responsive layout](image4.png)
+> **Figure placeholder 4: Responsive or narrow-viewport layout.**
+> Add a mobile or narrow-browser screenshot showing how the page reflows below desktop width. It should demonstrate that the hero, CTA buttons, section images, pricing cards, and location content stack without overlap. Suggested filename: `figure-4-responsive-layout.png`.
 
 ## Technical Implementation
 
@@ -80,7 +84,8 @@ The final layout pass also corrected a desktop hero overflow issue. The hero hea
 
 The HTML entry file includes SEO metadata, Open Graph information, and JSON-LD structured data. This supports digital discoverability and communicates the site's topic to search engines. Kannan and Li (2017) describe digital marketing as a system of touchpoints shaped by digital technologies; in that sense, the metadata is not a separate technical afterthought but part of the broader acquisition strategy.
 
-![Form, navigation, or responsive detail evidence](image5.png)
+> **Figure placeholder 5: Interaction and form detail.**
+> Add a screenshot focused on an interaction detail, such as the selected location tab, hover/active card state, or the waiver form with labelled fields. This should provide evidence for the accessibility and interaction discussion. Suggested filename: `figure-5-interaction-form.png`.
 
 ## Responsive and Browser-Zoom Assessment
 
@@ -124,7 +129,8 @@ The local server responded successfully at `http://127.0.0.1:5173` with HTTP sta
 
 It should be noted that the parent project folder is not a Git repository, so changes were made directly to the file system rather than committed through version control. The deliverable files are nevertheless present in the workspace: the React source, CSS, static images, build output, screenshots, and this report.
 
-![Additional page-state or final verification evidence](image6.png)
+> **Figure placeholder 6: Final validation or deployment evidence.**
+> Add a screenshot showing either the final deployed Vercel page, the successful local development page, or a build/deployment confirmation screen. This should support the testing and validation section. Suggested filename: `figure-6-validation-deployment.png`.
 
 ## SEO and Content Strategy
 
