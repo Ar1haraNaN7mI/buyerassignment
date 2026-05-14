@@ -18,7 +18,6 @@ type OptimizedImageProps = {
   height: number;
   className?: string;
   loading?: "eager" | "lazy";
-  fetchPriority?: "high" | "low" | "auto";
 };
 
 type EventItem = {
@@ -175,7 +174,6 @@ function OptimizedImage({
   height,
   className,
   loading = "lazy",
-  fetchPriority = "auto",
 }: OptimizedImageProps) {
   return (
     <img
@@ -186,13 +184,12 @@ function OptimizedImage({
       height={height}
       loading={loading}
       decoding="async"
-      fetchPriority={fetchPriority}
       onError={(event) => {
         const image = event.currentTarget;
-        const fallback = `/images/${name}`;
 
-        if (image.src !== new URL(fallback, window.location.href).href) {
-          image.src = fallback;
+        if (image.dataset.fallbackApplied !== "true") {
+          image.dataset.fallbackApplied = "true";
+          image.src = `/images/${name}`;
         }
       }}
     />
@@ -221,7 +218,6 @@ function App() {
               width={713}
               height={292}
               loading="eager"
-              fetchPriority="high"
             />
             <span>Beyond Bouldering</span>
           </a>
@@ -247,7 +243,6 @@ function App() {
               width={1562}
               height={1037}
               loading="eager"
-              fetchPriority="high"
             />
           </div>
           <div className="hero-copy">
