@@ -310,6 +310,26 @@ img {
   align-items: end;
 }
 
+.section-heading.with-media {
+  grid-template-columns: minmax(0, 0.72fr) minmax(260px, 0.28fr);
+  align-items: stretch;
+}
+
+.heading-copy {
+  display: grid;
+  align-content: end;
+  gap: 0.8rem;
+}
+
+.heading-image {
+  width: 100%;
+  height: 180px;
+  min-height: 180px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: var(--mist);
+}
+
 .section-heading h2,
 .split-section h2,
 .waiver-section h2 {
@@ -802,9 +822,14 @@ h3 {
   }
 
   .section-heading.compact,
+  .section-heading.with-media,
   .split-section,
   .waiver-section {
     grid-template-columns: 1fr;
+  }
+
+  .heading-image {
+    height: 240px;
   }
 
   .split-section img {

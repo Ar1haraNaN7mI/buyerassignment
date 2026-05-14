@@ -21,6 +21,15 @@ type OptimizedImageProps = {
   fetchPriority?: "high" | "low" | "auto";
 };
 
+type EventItem = {
+  title: string;
+  meta: string;
+  image: ImageName;
+  width: number;
+  height: number;
+  copy: string;
+};
+
 type PricePlan = {
   label: string;
   name: string;
@@ -129,7 +138,7 @@ const safetyItems = [
   "Start on easier colours, downclimb where possible, and keep landing zones clear.",
 ];
 
-const events = [
+const events: EventItem[] = [
   {
     title: "Board Wars",
     meta: "Thebarton events",
@@ -320,9 +329,18 @@ function App() {
         </section>
 
         <section className="section pricing-section" id="pricing" aria-labelledby="pricing-title">
-          <div className="section-heading compact">
-            <p className="eyebrow">Pricing</p>
-            <h2 id="pricing-title">Compare the main choices without opening accordions.</h2>
+          <div className="section-heading compact with-media">
+            <div className="heading-copy">
+              <p className="eyebrow">Pricing</p>
+              <h2 id="pricing-title">Compare the main choices without opening accordions.</h2>
+            </div>
+            <OptimizedImage
+              className="heading-image"
+              name="gym-floor.webp"
+              alt="Climbers using the indoor bouldering gym floor"
+              width={1920}
+              height={1078}
+            />
           </div>
           <div className="price-grid">
             {pricePlans.map((plan) => (
@@ -370,9 +388,18 @@ function App() {
         </section>
 
         <section className="section location-section" id="locations" aria-labelledby="location-title">
-          <div className="section-heading compact">
-            <p className="eyebrow">Locations</p>
-            <h2 id="location-title">Choose the gym that fits your routine.</h2>
+          <div className="section-heading compact with-media">
+            <div className="heading-copy">
+              <p className="eyebrow">Locations</p>
+              <h2 id="location-title">Choose the gym that fits your routine.</h2>
+            </div>
+            <OptimizedImage
+              className="heading-image"
+              name="about-wall.webp"
+              alt="Beyond Bouldering climbing wall used to compare Adelaide locations"
+              width={1920}
+              height={1078}
+            />
           </div>
           <div className="location-layout">
             <div className="location-tabs" role="tablist" aria-label="Beyond Bouldering locations">
@@ -492,20 +519,26 @@ function App() {
             </p>
           </div>
           <form className="waiver-form" aria-label="Concept waiver form">
-            <label>
+            <label htmlFor="waiver-name">
               Name
-              <input type="text" placeholder="Haoyuan Chen" />
+              <input
+                id="waiver-name"
+                name="name"
+                type="text"
+                placeholder="Haoyuan Chen"
+                autoComplete="name"
+              />
             </label>
-            <label>
+            <label htmlFor="waiver-location">
               Visit location
-              <select defaultValue="Kent Town">
+              <select id="waiver-location" name="location" defaultValue="Kent Town">
                 <option>Kent Town</option>
                 <option>Keswick</option>
                 <option>Thebarton</option>
               </select>
             </label>
-            <label className="check-row">
-              <input type="checkbox" />
+            <label className="check-row" htmlFor="waiver-safety">
+              <input id="waiver-safety" name="safetyAcknowledgement" type="checkbox" />
               <span>I understand the beginner safety rules and landing zone guidance.</span>
             </label>
             <button type="button">Continue secure waiver</button>
