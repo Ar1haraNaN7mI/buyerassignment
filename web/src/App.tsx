@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type LocationKey = "kent-town" | "keswick" | "thebarton";
 type ImageName =
@@ -199,6 +199,36 @@ function OptimizedImage({
 function App() {
   const [activeLocation, setActiveLocation] = useState<LocationKey>("kent-town");
   const location = locations[activeLocation];
+
+  useEffect(() => {
+    const revealItems = document.querySelectorAll<HTMLElement>(
+      ".section, .section-heading, .heading-image, .prep-panel, .split-section, .program-grid article, .event-card, .waiver-section",
+    );
+
+    if (!("IntersectionObserver" in window)) {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 },
+    );
+
+    revealItems.forEach((item) => {
+      item.classList.add("reveal");
+      observer.observe(item);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="page">
