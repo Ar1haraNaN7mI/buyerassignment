@@ -353,7 +353,7 @@ function App() {
             ))}
           </div>
           <p className="decision-note">
-            Recommended for Haoyuan: start with the Beginner Starter Pack, because it removes
+            Recommended for Haoyuan Ma: start with the Beginner Starter Pack, because it removes
             equipment uncertainty and gives enough time to decide whether membership is logical.
           </p>
         </section>
@@ -543,7 +543,7 @@ function App() {
                 id="waiver-name"
                 name="name"
                 type="text"
-                placeholder="Haoyuan Chen"
+                placeholder="Haoyuan Ma"
                 autoComplete="name"
               />
             </label>
