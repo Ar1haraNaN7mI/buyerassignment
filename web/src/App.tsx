@@ -45,7 +45,7 @@ const pricePlans: PricePlan[] = [
     name: "Beginner Starter Pack",
     price: "$59",
     detail: "Three weeks of unlimited climbing with shoe and chalk hire included.",
-    bestFor: "People who want to test bouldering without reading a complex price list.",
+    bestFor: "New climbers who want shoes, chalk, and plenty of climbing time included.",
     action: "Start here",
     featured: true,
   },
@@ -54,7 +54,7 @@ const pricePlans: PricePlan[] = [
     name: "Single Entry",
     price: "$24",
     detail: "One climbing session at any Adelaide Beyond Bouldering location.",
-    bestFor: "Busy professionals who need a low-commitment after-work option.",
+    bestFor: "After-work climbs, spontaneous sessions, and visitors keeping plans light.",
     action: "Buy casual pass",
   },
   {
@@ -62,7 +62,7 @@ const pricePlans: PricePlan[] = [
     name: "10 Visit Pass",
     price: "$216",
     detail: "Ten entries, shared value, and a twelve month expiry window.",
-    bestFor: "Students and shift workers who climb around changing schedules.",
+    bestFor: "Students, shift workers, and friends sharing flexible entries.",
     action: "Buy visit pass",
   },
   {
@@ -70,7 +70,7 @@ const pricePlans: PricePlan[] = [
     name: "Membership",
     price: "$29/wk",
     detail: "Unlimited climbing, member pricing, and a simple direct debit flow.",
-    bestFor: "Users who want bouldering to become part of their weekly routine.",
+    bestFor: "Regular climbers making bouldering part of the week.",
     action: "Become a member",
   },
 ];
@@ -92,12 +92,12 @@ const locations: Record<
     fit: "Best for after-work sessions and first visits from the east side of the city.",
     travel: "Quick ride from Adelaide CBD, Norwood, and university precincts.",
     address: "15 minutes from Adelaide CBD by bike or car",
-    facilities: ["Beginner-friendly sets", "Rental shoes", "Coaching sessions", "Social evening flow"],
+    facilities: ["Beginner-friendly sets", "Rental shoes", "Coaching sessions", "Social evenings"],
   },
   keswick: {
     name: "Keswick",
     area: "Inner south-west",
-    fit: "Best for users near Goodwood, Mile End, Richmond, and Keswick offices.",
+    fit: "Best for climbers near Goodwood, Mile End, Richmond, and Keswick offices.",
     travel: "Easy stop before or after work for people commuting through the south-west.",
     address: "Close to Keswick Station and city fringe workplaces",
     facilities: ["Wide grade range", "Training zone", "Youth programs", "Accessible parking"],
@@ -108,7 +108,7 @@ const locations: Record<
     fit: "Best for higher-energy training, boards, events, and progression goals.",
     travel: "Strong option for Bowden, Hindmarsh, Thebarton, and western suburbs.",
     address: "Close to tram and inner-west arterial routes",
-    facilities: ["Board training", "Event nights", "Advanced problems", "Private coaching"],
+    facilities: ["Board training", "Event nights", "Advanced climbs", "Private coaching"],
   },
 };
 
@@ -116,23 +116,23 @@ const firstTimeSteps = [
   {
     step: "01",
     title: "Choose a simple pass",
-    copy: "The starter pack, casual pass, and membership options are compared in one view so new users do not have to open several pricing sections.",
+    copy: "Start with the beginner pack, a casual pass, or a membership without digging through hidden pricing.",
   },
   {
     step: "02",
     title: "Complete the waiver",
-    copy: "A consistent pre-arrival form explains data use, safety rules, and check-in requirements before the user reaches the gym.",
+    copy: "Sign the waiver online, confirm the safety basics, and keep check-in fast when you arrive.",
   },
   {
     step: "03",
     title: "Arrive prepared",
-    copy: "Clear guidance on rental shoes, chalk, clothing, warm-up space, and first-session timing reduces entry anxiety.",
+    copy: "Know what to wear, when to arrive, where to warm up, and how rental shoes and chalk work.",
   },
 ];
 
 const safetyItems = [
   "No ropes are required; bouldering uses padded floors and controlled falling practice.",
-  "Staff explain basic rules before first-time users begin climbing.",
+  "Staff explain basic rules before first-time climbers begin.",
   "Rental shoes and chalk are available at every location.",
   "Start on easier colours, downclimb where possible, and keep landing zones clear.",
 ];
@@ -144,7 +144,7 @@ const events: EventItem[] = [
     image: "board-wars.webp",
     width: 1080,
     height: 500,
-    copy: "Performance-focused sessions create a memorable peak moment for regular climbers.",
+    copy: "High-energy sessions for climbers who like friendly pressure and creative movement.",
   },
   {
     title: "8 Week Challenge",
@@ -152,11 +152,11 @@ const events: EventItem[] = [
     image: "eight-week-challenge.webp",
     width: 1800,
     height: 1200,
-    copy: "A structured pathway for confidence, strength, and community connection.",
+    copy: "Eight weeks of training, progress checks, and shared momentum across the gyms.",
   },
 ];
 
-const seoKeywords = [
+const startIdeas = [
   "bouldering for beginners in Adelaide",
   "indoor bouldering Adelaide CBD",
   "beginner climbing gym Kent Town",
@@ -238,7 +238,7 @@ function App() {
         </a>
         <div className="top-line">
           <span>Adelaide indoor bouldering</span>
-          <span>Beginner guide, clear pricing, integrated waiver</span>
+          <span>Beginner guide, clear pricing, easy waiver</span>
         </div>
         <div className="nav-shell">
           <a className="brand" href="#home" aria-label="Beyond Bouldering home">
@@ -279,8 +279,8 @@ function App() {
             <p className="eyebrow">Go forth. Boulder.</p>
             <h1 id="hero-title">Start climbing in Adelaide without the guesswork.</h1>
             <p>
-              A clearer Beyond Bouldering experience for first-time climbers, students, and
-              city workers who want a social fitness option with transparent pricing.
+              Big walls, bright holds, friendly staff, and everything you need for a confident
+              first session at Beyond Bouldering.
             </p>
             <div className="hero-actions" aria-label="Primary actions">
               <a className="button button-primary" href="#first-time">
@@ -307,7 +307,7 @@ function App() {
           </div>
           <div>
             <strong>1 view</strong>
-            <span>Pricing comparison</span>
+            <span>Simple pass guide</span>
           </div>
           <div>
             <strong>Beginner</strong>
@@ -320,14 +320,14 @@ function App() {
             <p className="eyebrow">First time?</p>
             <h2 id="first-time-title">A step-by-step path for new climbers.</h2>
             <p>
-              This redesign puts the conversion task first: understand the sport, pick a
-              price, finish the waiver, then arrive ready to climb.
+              Start with the basics, choose a pass that fits, finish the waiver, and walk in
+              ready to climb.
             </p>
           </div>
 
-          <div className="journey-grid">
+          <div className="step-grid">
             {firstTimeSteps.map((item) => (
-              <article className="journey-card" key={item.step}>
+              <article className="step-card" key={item.step}>
                 <span>{item.step}</span>
                 <h3>{item.title}</h3>
                 <p>{item.copy}</p>
@@ -357,7 +357,7 @@ function App() {
           <div className="section-heading compact with-media">
             <div className="heading-copy">
               <p className="eyebrow">Pricing</p>
-              <h2 id="pricing-title">Compare the main choices without opening accordions.</h2>
+              <h2 id="pricing-title">Pick your pass in seconds.</h2>
             </div>
             <OptimizedImage
               className="heading-image"
@@ -383,25 +383,20 @@ function App() {
             ))}
           </div>
           <p className="decision-note">
-            Recommended for Haoyuan Ma: start with the Beginner Starter Pack, because it removes
-            equipment uncertainty and gives enough time to decide whether membership is logical.
+            Recommended for Beginner: choose the Beginner Starter Pack for three weeks of climbing,
+            rental shoes, chalk, and time to settle into the gym.
           </p>
         </section>
 
-        <section className="split-section" aria-label="Brand value proposition">
+        <section className="split-section" aria-label="Beyond Bouldering first visit highlights">
           <div className="split-copy">
-            <p className="eyebrow">Online value proposition</p>
-            <h2>Clarity, efficiency, and transparency before the physical visit.</h2>
-            <p>
-              The original experience relies heavily on visual impact. This version keeps the
-              bold brand feeling but turns the homepage into a practical guide for a
-              task-oriented digital native.
-            </p>
+            <p className="eyebrow">First-visit flow</p>
+            <h2>Bold walls, clear choices, and a smoother first climb.</h2>
             <div className="value-list">
-              <span>Clear CTA hierarchy</span>
-              <span>Local SEO wording</span>
-              <span>Integrated waiver flow</span>
-              <span>Location comparison</span>
+              <span>Bold gym imagery</span>
+              <span>Fast booking actions</span>
+              <span>Easy waiver access</span>
+              <span>Clear location cards</span>
             </div>
           </div>
           <OptimizedImage
@@ -484,11 +479,7 @@ function App() {
         <section className="section classes-section" id="classes" aria-labelledby="classes-title">
           <div className="section-heading">
             <p className="eyebrow">Classes and community</p>
-            <h2 id="classes-title">Build a better ending to the customer journey.</h2>
-            <p>
-              Programs and events give users a reason to return after the first visit,
-              supporting the Peak-End Rule with memorable coached and social moments.
-            </p>
+            <h2 id="classes-title">Climb more often with coaching and events.</h2>
           </div>
           <div className="program-grid">
             <article>
@@ -531,29 +522,27 @@ function App() {
           </div>
         </section>
 
-        <section className="section seo-section" aria-labelledby="seo-title">
+        <section className="section start-section" aria-labelledby="start-title">
           <div className="section-heading compact with-media">
             <div className="heading-copy">
-              <p className="eyebrow">Search discovery</p>
-              <h2 id="seo-title">Local search terms are built into the page.</h2>
+              <p className="eyebrow">Find your start</p>
+              <h2 id="start-title">Popular ways to begin are easy to spot.</h2>
             </div>
             <OptimizedImage
               className="heading-image"
               name="coaching.webp"
-              alt="Indoor bouldering coaching session supporting Adelaide search discovery"
+              alt="Indoor bouldering coaching session"
               width={1920}
               height={1078}
             />
           </div>
           <div className="keyword-grid">
-            {seoKeywords.map((keyword) => (
+            {startIdeas.map((keyword) => (
               <span key={keyword}>{keyword}</span>
             ))}
           </div>
           <p>
-            The content uses location-based long-tail phrases naturally, improving relevance for
-            people searching for beginner bouldering, indoor climbing, and social fitness in
-            Adelaide.
+            Choose by suburb, class type, skill level, or the kind of session you want today.
           </p>
         </section>
 
@@ -562,18 +551,18 @@ function App() {
             <p className="eyebrow">Waiver and check-in</p>
             <h2 id="waiver-title">Finish the admin before you reach the front desk.</h2>
             <p>
-              A single branded flow lowers trust concerns, avoids repeated data checks, and
-              makes the final step of the funnel feel consistent with the rest of the website.
+              Complete your details before you visit, confirm the safety basics, and spend more
+              of your first session on the wall.
             </p>
           </div>
-          <form className="waiver-form" aria-label="Concept waiver form">
+          <form className="waiver-form" aria-label="Waiver form">
             <label htmlFor="waiver-name">
               Name
               <input
                 id="waiver-name"
                 name="name"
                 type="text"
-                placeholder="Haoyuan Ma"
+                placeholder="Your name"
                 autoComplete="name"
               />
             </label>
@@ -597,14 +586,14 @@ function App() {
       <footer className="site-footer">
         <div>
           <strong>Beyond Bouldering Adelaide</strong>
-          <p>Website reconstruction concept for improved first-time conversion.</p>
+          <p>Three Adelaide gyms, beginner-friendly sessions, classes, and social events.</p>
         </div>
         <nav aria-label="Footer navigation">
           <a href="#first-time">First Time</a>
           <a href="#pricing">Pricing</a>
           <a href="#locations">Locations</a>
           <a href="https://beyondbouldering.com.au/" target="_blank" rel="noopener noreferrer">
-            Original site
+            Beyond Bouldering
           </a>
         </nav>
       </footer>
